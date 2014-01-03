@@ -1,4 +1,5 @@
 snippets_embedded
 =================
 
-Embedded snippet toolbox
+Small snippets that are portable and useful for any embedded systems.
+
