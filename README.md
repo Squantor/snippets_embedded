@@ -17,3 +17,10 @@ These datastructures are often used in all kinds of facilities that are "snippif
 * Timer queue, advanced queue that allows single shot or repetative events
 
 As you can see in the many empty dirs, there are still a lot that needs to be done. 
+
+Planned
+=======
+There are still a bunch of things to do.
+* Complete the queue variants, by first finishing the compact and then translating it to an inline variant.
+* Make files for all three variants with main.c
+* Maybe defining CUnit tests for all variants
