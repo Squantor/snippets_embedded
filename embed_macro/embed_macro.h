@@ -22,22 +22,19 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 /*
-Results occuring in an application
+Various useful macros for embedded systems
 */
 
-#ifndef __RESULTS_H__
-#define __RESULTS_H__
+#ifndef __EMBED_MACRO_H__
+#define __EMBED_MACRO_H__
 
-typedef enum
-{
-    noError,
-    error,
-    empty,
-    notEmpty,
-    Full,
-    readError,
-    writeError,
-    timeOut,
-} results;
+// Macro for making a volatile access to a non volatile variable
+#define volatileAccess(v) *((volatile typeof((v)) *) &(v))
+
+// memory barrier macro, makes sure that everything is written and 
+// that values should be reloaded from RAM.
+static inline void compilerBarrier(void) {
+        asm volatile("" ::: "memory");
+}
 
 #endif
