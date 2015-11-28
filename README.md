@@ -6,23 +6,19 @@ Small snippets that are portable and useful for any embedded systems. Every high
 * Macro: macro instantiation, quite fast but still generates function code
 * Inline: The fastest, usually restricted to one module scope (single file), useful for interrupt routines and such
 
-There are a bunch of datastructures implemented and planned.
-* Queue: General purpose queue data structure (WIP)
-* Maxheap: Maximum first heap (TODO)
-* Minheap: Minimum first heap (TODO)
-* Results: Nothing more then a program wide enum that defines the various returnable results like no Error, Out of memory, controller on fire and more. Most of the datastructures or modules define their own Results enum. This datastruct defines the most common ones. (DONE)
-* Debug: Debug printouts with various debug levels and module definitions (TODO)
+Datastructures
+==============
+* fifo_(style): circular buffer implementation. Do note that these are not declared volatile and should be done as such when used in ISR's.
+* Results: Nothing more then a program wide enum that defines the various returnable results like no Error, Out of memory, controller on fire and more. I generally define one application wide results.h file and let all function pass this result to the caller.
+* fp_math_(style): Fixed point macro maths (WIP)
 
+Facilities
+==========
 These datastructures are often used in all kinds of facilities that are "snippified" and placed here for use in all kinds of embedded systems.
-* Queueing of events, either with or without arguments (WIP)
-* Software bus, multiple event generators and listeners (TODO)
-* Timer queue, advanced queue that allows single shot or repetative events (TODO)
-
-As you can see in the many empty dirs, there are still a lot that needs to be done. 
+* eventhandlernoargs: Queueing of events, without arguments (WIP)
+* eventhandlerargs: Queueing of events, with arguments (WIP)
 
 Planned
 =======
 There are still a bunch of things to do.
-* Complete the queue variants, by first finishing the compact and then translating it to an inline variant.
-* Make files for all three variants with main.c
-* Maybe defining CUnit tests for all variants
+* A few snippets have unit tests but the idea is that all of them have them. The idea is to use the minunit.h unittest framework to realise this.
